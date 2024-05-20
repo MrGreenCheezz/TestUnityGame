@@ -6,6 +6,8 @@
 /[Tt]emp/
 /[Oo]bj/
 /[Bb]uild/
+/[Cc]lientBuild/
+/[Ss]erverBuild/
 /[Bb]uilds/
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
