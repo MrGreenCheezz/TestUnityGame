@@ -20,9 +20,9 @@ Library: G:\Proj\BuildGame\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_genera
 --assembly-defines=Unity.Mathematics;
 --assembly-defines=Unity.TextMeshPro;
 --assembly-defines=Unity.VisualScripting.State;
+--assembly-defines=Unity.Collections.LowLevel.ILSupport;
 --assembly-defines=Unity.VisualScripting.Antlr3.Runtime;
 --assembly-defines=Unity.Burst.Unsafe;
---assembly-defines=Unity.Collections.LowLevel.ILSupport;
 --assembly-defines=System.Runtime;
 --assembly-defines=netstandard;
 --assembly-defines=Mono.Security;
@@ -152,9 +152,9 @@ Library: G:\Proj\BuildGame\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_genera
 --assembly-defines=Unity.Mathematics;
 --assembly-defines=Unity.TextMeshPro;
 --assembly-defines=Unity.VisualScripting.State;
+--assembly-defines=Unity.Collections.LowLevel.ILSupport;
 --assembly-defines=Unity.VisualScripting.Antlr3.Runtime;
 --assembly-defines=Unity.Burst.Unsafe;
---assembly-defines=Unity.Collections.LowLevel.ILSupport;
 --assembly-defines=System.Runtime;
 --assembly-defines=netstandard;
 --assembly-defines=Mono.Security;

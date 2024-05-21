@@ -51,6 +51,17 @@ public class NetworkBaseSetupScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            NetworkManager.Singleton.Shutdown();
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData("192.168.0.133", 7777);
+            NetworkManager.Singleton.StartHost();
+        }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            NetworkManager.Singleton.Shutdown();
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData("192.168.0.133", 7777);
+            NetworkManager.Singleton.StartClient();
+        }
     }
 }
