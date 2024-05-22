@@ -48,7 +48,7 @@ Library: G:\Proj\BuildGame\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_genera
 --linker-options=PdbAltPath="BuildGame_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=G:\Proj\BuildGame\Temp\Burst
---key-folder=C:/UnityEditors/2022.3.27f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
+--key-folder=C:/UnityEditors/2022.3.30f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
 --decode-folder=G:\Proj\BuildGame\Library\Burst
 --output=G:\Proj\BuildGame\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
@@ -180,7 +180,7 @@ Library: G:\Proj\BuildGame\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_genera
 --linker-options=PdbAltPath="BuildGame_Data/Plugins/x86_64/lib_burst_generated.pdb"
 --generate-link-xml=Temp\burst.link.xml
 --temp-folder=G:\Proj\BuildGame\Temp\Burst
---key-folder=C:/UnityEditors/2022.3.27f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
+--key-folder=C:/UnityEditors/2022.3.30f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport
 --decode-folder=G:\Proj\BuildGame\Library\Burst
 --output=G:\Proj\BuildGame\Temp\BurstOutput\Data\Plugins\x86_64\lib_burst_generated
 --pdb-search-paths=Temp/ManagedSymbols/
