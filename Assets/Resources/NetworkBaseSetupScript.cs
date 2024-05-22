@@ -54,13 +54,13 @@ public class NetworkBaseSetupScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.H))
         {
             NetworkManager.Singleton.Shutdown();
-            NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData("192.168.0.133", 7777);
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData("127.0.0.1", 7777);
             NetworkManager.Singleton.StartHost();
         }
         if (Input.GetKeyDown(KeyCode.J))
         {
             NetworkManager.Singleton.Shutdown();
-            NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData("192.168.0.133", 7777);
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData("127.0.0.1", 7777);
             NetworkManager.Singleton.StartClient();
         }
     }

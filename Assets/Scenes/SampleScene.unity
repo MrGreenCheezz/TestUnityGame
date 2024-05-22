@@ -361,9 +361,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: NetworkManager
       objectReference: {fileID: 0}
-    - target: {fileID: 4917781937347902881, guid: 2fdc352dfb34383469f46bb62b439a46, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+    - target: {fileID: 4748912258303222945, guid: 2fdc352dfb34383469f46bb62b439a46, type: 3}
+      propertyPath: m_ProtocolType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4748912258303222945, guid: 2fdc352dfb34383469f46bb62b439a46, type: 3}
+      propertyPath: ConnectionData.Port
+      value: 25565
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
