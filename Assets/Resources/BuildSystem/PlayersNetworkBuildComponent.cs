@@ -15,6 +15,7 @@ public class PlayersNetworkBuildComponent : NetworkBehaviour
     private GameObject _buildingObjectGhost;
     public Material okMaterial;
     public Material notOkMaterial;
+    private BuildGhostChecker _currentGhost;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +37,7 @@ public class PlayersNetworkBuildComponent : NetworkBehaviour
             if (Physics.Raycast(_controller.playerCamera.transform.position, direction, out _hit, 500, ((1 << 6) | (1 << 7))))
             {
                 _buildingObjectGhost.transform.position = _hit.point;
+                _currentGhost.normal = _hit.normal;
                 //Debug.DrawLine(transform.position, transform.position + direction * 200f, Color.red, 5f);
             }
             if(Input.GetKeyDown(KeyCode.Mouse0))
@@ -59,10 +61,13 @@ public class PlayersNetworkBuildComponent : NetworkBehaviour
                 var tmp = _buildingObjectGhost.AddComponent<BuildGhostChecker>();
                 tmp.okMaterial = okMaterial;
                 tmp.notOkMaterial = notOkMaterial;
+                tmp.ParentNetBuildObject = BuildObjects[CurrentBuildObjectIndex];
+                _currentGhost = tmp;
             }
             else
             {
                 _buildingObjectGhost = Instantiate(BuildObjects[CurrentBuildObjectIndex].buildGhostObject);
+                _currentGhost = _buildingObjectGhost.GetComponent<BuildGhostChecker>();
             }
             
         }

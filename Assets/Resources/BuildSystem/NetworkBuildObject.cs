@@ -14,7 +14,8 @@ public class NetworkBuildObject : NetworkBehaviour
     public GameObject PrefabToBuild;
     private GameObject _currentObject;
     public GameObject buildGhostObject;
-
+    public bool CanBeBuildOnWall = false;
+    public bool CanBeBuildOnSurface = true;
     // Start is called before the first frame update
     void Start()
     {
