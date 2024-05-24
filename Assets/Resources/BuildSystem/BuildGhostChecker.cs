@@ -23,7 +23,8 @@ public class BuildGhostChecker : MonoBehaviour
         {
            render.material = okMaterial;
        }
-        
+        var collider = GetComponent<Collider>();
+        collider.isTrigger = true;
     }
 
     private void Update()

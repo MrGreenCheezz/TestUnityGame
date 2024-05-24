@@ -36,7 +36,7 @@ public class PlayersNetworkBuildComponent : NetworkBehaviour
             Vector3 direction = _controller.playerCamera.transform.forward * 200f;
             if (Physics.Raycast(_controller.playerCamera.transform.position, direction, out _hit, 500, ((1 << 6) | (1 << 7))))
             {
-                _buildingObjectGhost.transform.position = _hit.point;
+                _buildingObjectGhost.transform.position = _hit.point + _hit.normal * 1f;
                 _currentGhost.normal = _hit.normal;
                 //Debug.DrawLine(transform.position, transform.position + direction * 200f, Color.red, 5f);
             }
