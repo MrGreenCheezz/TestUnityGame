@@ -20,8 +20,10 @@ public class NetworkBuildObject : NetworkBehaviour
     void Start()
     {
         _currentObject = Instantiate(PrefabToBuild);
+        _currentObject.layer = 7;
         _currentObject.transform.position = transform.position;
         _currentObject.transform.parent = transform;
+        _currentObject.transform.rotation = transform.rotation;
     }
 
     // Update is called once per frame

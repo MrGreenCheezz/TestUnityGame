@@ -73,6 +73,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12da6d31cd5eec5438a5d3f148a03694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AvailableGamemodes: []
+  OfflineScene: OfflineScene
+  OnlineScene: OnlineScene
 --- !u!114 &1110475902399059973
 MonoBehaviour:
   m_ObjectHideFlags: 0

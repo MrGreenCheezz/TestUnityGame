@@ -368,6 +368,14 @@ PrefabInstance:
       propertyPath: ConnectionData.Port
       value: 25565
       objectReference: {fileID: 0}
+    - target: {fileID: 4917781937347902881, guid: 2fdc352dfb34383469f46bb62b439a46, type: 3}
+      propertyPath: AvailableGamemodes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4917781937347902881, guid: 2fdc352dfb34383469f46bb62b439a46, type: 3}
+      propertyPath: AvailableGamemodes.Array.data[0]
+      value: 
+      objectReference: {fileID: 5763263103956753939, guid: ee5c60b594c594644828fd59d19e77c9, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

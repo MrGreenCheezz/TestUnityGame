@@ -4,28 +4,39 @@ using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NetworkBaseSetupScript : MonoBehaviour
 {
+
+    public List<GameObject> AvailableGamemodes = new List<GameObject>();
+    public string OfflineScene;
+    public string OnlineScene;
     // Start is called before the first frame update
     void Start()
     {
         if(Application.platform == RuntimePlatform.WindowsServer)
         {
-            NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData("192.168.0.133", 7777);
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData("127.0.0.1", 7777);
             NetworkManager.Singleton.StartServer();
 
             NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
             NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnected;
+
+            foreach (var gamemode in AvailableGamemodes)
+            {
+                var tmp = Instantiate(gamemode);
+                tmp.GetComponent<NetworkObject>().Spawn();
+            }
            
         }
         else
         {
-            NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData("192.168.0.133", 7777);
-            NetworkManager.Singleton.StartClient();
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData("127.0.0.1", 7777);
+            SceneManager.LoadScene(OfflineScene);
         }
     }
-
+     
 
     private void OnDisable()
     {
@@ -56,6 +67,11 @@ public class NetworkBaseSetupScript : MonoBehaviour
             NetworkManager.Singleton.Shutdown();
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData("127.0.0.1", 7777);
             NetworkManager.Singleton.StartHost();
+            foreach (var gamemode in AvailableGamemodes)
+            {
+                var tmp = Instantiate(gamemode);
+                tmp.GetComponent<NetworkObject>().Spawn();
+            }
         }
         if (Input.GetKeyDown(KeyCode.J))
         {

@@ -15,9 +15,11 @@ public class BuildGhostChecker : MonoBehaviour
     public Vector3 normal;
     private int collisionCount = 0;
     private bool isColliding;
+    private Vector3 NormalVectorUp;
 
     private void Start()
     {
+        NormalVectorUp = transform.up;
       renders =  gameObject.GetComponents<MeshRenderer>();
        foreach(var render in renders)
         {
@@ -35,12 +37,19 @@ public class BuildGhostChecker : MonoBehaviour
             canBuild = tmpAngle;
             ChangeMatAccordingBool(canBuild);
         }
+        if (!ParentNetBuildObject.CanBeBuildOnWall)
+        {
+            Quaternion targetRotation = Quaternion.FromToRotation(transform.up, normal) * transform.rotation;
+
+            // Устанавливаем поворот объекта
+            transform.rotation = targetRotation;
+        }
     }
 
     public bool CheckPlaceAngle(Vector3 normal)
     {
   
-        float angle = Vector3.Angle(normal, transform.up);
+        float angle = Vector3.Angle(normal, NormalVectorUp);
 
         if (isColliding)
         {
