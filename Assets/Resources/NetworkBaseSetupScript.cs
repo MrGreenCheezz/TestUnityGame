@@ -13,15 +13,17 @@ public class NetworkBaseSetupScript : MonoBehaviour
     public List<GameObject> AvailableGamemodes = new List<GameObject>();
     public string OfflineScene;
     public string OnlineScene;
+    [SerializeField]
+    private GameObject spawnPos;
     // Start is called before the first frame update
     void Start()
     {
         if(Application.platform == RuntimePlatform.WindowsServer)
         {
+            SceneManager.sceneLoaded += SceneChanged;
             SceneManager.LoadScene("OnlineScene");
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData("127.0.0.1", 7777);
             NetworkManager.Singleton.StartServer();
-
             NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
             NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnected;
 
@@ -32,8 +34,19 @@ public class NetworkBaseSetupScript : MonoBehaviour
             }
            
         }
+       
 
     }
+
+    private void SceneChanged(Scene scene, LoadSceneMode sceneMode)
+    {
+        if(scene.name == OnlineScene)
+        {
+            spawnPos = GameObject.FindWithTag("Respawn");
+        }
+    }
+
+ 
      
     public void JoinGame()
     {
@@ -57,7 +70,7 @@ public class NetworkBaseSetupScript : MonoBehaviour
         {
             Debug.Log($"Client {clientId} connected.");
             var playerObject = NetworkManager.Singleton.SpawnManager.GetPlayerNetworkObject(clientId);
-            playerObject.transform.position = new Vector3(10 * clientId, 0, 0);
+            playerObject.GetComponent<FirstPersonControllerNetworked>().MovePlayerToPositionClientRpc(spawnPos.transform.position);
         }
     }
 
@@ -69,6 +82,7 @@ public class NetworkBaseSetupScript : MonoBehaviour
     private void OnClientDisconnected(ulong clientId)
     {
         Debug.Log($"Client {clientId} disconnected.");
+        (NetworkManager.Singleton as CustomNetworkManager).RemovePlayerName(clientId);
     }
 
     // Update is called once per frame

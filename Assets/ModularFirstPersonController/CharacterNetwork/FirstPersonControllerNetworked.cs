@@ -325,8 +325,31 @@ public class FirstPersonControllerNetworked : NetworkBehaviour
             HeadBob();
         }
 
-    }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            JoinPlayerToArenaServerRpc(networkObject.OwnerClientId);
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            LeavePlayerFromArenaServerRpc(networkObject.OwnerClientId);
+        }
 
+    }
+    [ClientRpc]
+    public void MovePlayerToPositionClientRpc(Vector3 position)
+    {
+        gameObject.transform.position = position;
+    }
+    [ServerRpc]
+    public void JoinPlayerToArenaServerRpc(ulong clientId)
+    {
+        ArenaGamemode.instance.PlayerJoined(clientId);
+    }
+    [ServerRpc]
+    public void LeavePlayerFromArenaServerRpc(ulong clientId)
+    {
+        ArenaGamemode.instance.PlayerLeft(clientId);
+    }
     private void DoCrouch()
     {
         if (enableCrouch)

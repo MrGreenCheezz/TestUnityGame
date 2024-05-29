@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3231984568
+  GlobalObjectIdHash: 2231335433
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -66,3 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c6de74a288a80b42a4da24a8f31cf28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentState:
+    m_InternalValue: 0
+  ScoreToWin: 5
+  PlayerPrefab: {fileID: 4459864850019384750, guid: 6b149fc03468c2b47a26d9a57d1c8e52, type: 3}
