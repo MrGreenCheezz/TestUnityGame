@@ -11,10 +11,7 @@ public class CustomNetworkManager : NetworkManager
         
     }
 
-    public void StartClientConnection()
-    {
-        NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData("127.0.0.1", 7777);
-        UnityEngine.SceneManagement.SceneManager.LoadScene("OnlineScene");
-        StartClient();
-    }
+    
+
+    
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using UnityEditor;
@@ -17,6 +18,7 @@ public class NetworkBaseSetupScript : MonoBehaviour
     {
         if(Application.platform == RuntimePlatform.WindowsServer)
         {
+            SceneManager.LoadScene("OnlineScene");
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData("127.0.0.1", 7777);
             NetworkManager.Singleton.StartServer();
 
@@ -30,13 +32,15 @@ public class NetworkBaseSetupScript : MonoBehaviour
             }
            
         }
-        else
-        {
-            NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData("127.0.0.1", 7777);
-            SceneManager.LoadScene(OfflineScene);
-        }
+
     }
      
+    public void JoinGame()
+    {
+        SceneManager.LoadScene("OnlineScene");
+        NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData("127.0.0.1", 7777);
+        NetworkManager.Singleton.StartClient();
+    }
 
     private void OnDisable()
     {
@@ -49,9 +53,17 @@ public class NetworkBaseSetupScript : MonoBehaviour
 
     private void OnClientConnected(ulong clientId)
     {
-        Debug.Log($"Client {clientId} connected.");
-        var playerObject = NetworkManager.Singleton.SpawnManager.GetPlayerNetworkObject(clientId);
-        playerObject.transform.position = new Vector3(1 * clientId, 0, 0);
+        if (NetworkManager.Singleton.IsServer)
+        {
+            Debug.Log($"Client {clientId} connected.");
+            var playerObject = NetworkManager.Singleton.SpawnManager.GetPlayerNetworkObject(clientId);
+            playerObject.transform.position = new Vector3(10 * clientId, 0, 0);
+        }
+    }
+
+    public void RequestName()
+    {
+
     }
 
     private void OnClientDisconnected(ulong clientId)
@@ -62,22 +74,5 @@ public class NetworkBaseSetupScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            NetworkManager.Singleton.Shutdown();
-            NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData("127.0.0.1", 7777);
-            NetworkManager.Singleton.StartHost();
-            foreach (var gamemode in AvailableGamemodes)
-            {
-                var tmp = Instantiate(gamemode);
-                tmp.GetComponent<NetworkObject>().Spawn();
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            NetworkManager.Singleton.Shutdown();
-            NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData("127.0.0.1", 7777);
-            NetworkManager.Singleton.StartClient();
-        }
     }
 }
