@@ -15,7 +15,7 @@ public class PlayerNameSystemScript : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerCamera = Camera.main;
+        PlayerCamera = Camera.current;
         if (IsServer)
         {
            // MyPlayersName.OnValueChanged += ChangePlayerNameClientRpc;
@@ -24,8 +24,40 @@ public class PlayerNameSystemScript : NetworkBehaviour
         {
             SendNameServerRpc(Persistentdata.Instance.PlayerName);
             NameUIObject.SetActive(false);
+            PlayerNameSystemScript[] Names = (PlayerNameSystemScript[])FindObjectsOfType(typeof(PlayerNameSystemScript));
+            foreach (var name in Names)
+            {
+                if (name != this)
+                {
+                    name.PlayerCamera = GetComponentInChildren<Camera>();
+                }
+            }
+
         }
+        else
+        {
+
+        }
+
         NameUIObject.GetComponent<TextMeshProUGUI>().text = MyPlayersName.Value.ToString();
+    }
+    private void OnEnable()
+    {
+        if (IsOwner)
+        {
+            PlayerNameSystemScript[] Names = (PlayerNameSystemScript[])FindObjectsOfType(typeof(PlayerNameSystemScript));
+            foreach (var name in Names)
+            {
+                if (name != this)
+                {
+                    name.PlayerCamera = GetComponentInChildren<Camera>();
+                }
+            }
+        }
+    }
+    public void ChangeCameraToFollow(Camera camera)
+    {
+        PlayerCamera = camera;
     }
 
     [ClientRpc]
@@ -40,17 +72,30 @@ public class PlayerNameSystemScript : NetworkBehaviour
        MyPlayersName.Value = name;
        ChangePlayerNameClientRpc(name);
         var customManager = NetworkManager.Singleton as CustomNetworkManager;
-        customManager.AddPlayerName(OwnerClientId, name);
+        if(customManager.PlayerNames.ContainsKey(OwnerClientId))
+        {
+            customManager.PlayerNames[OwnerClientId] = name;
+        }
+        else
+        {
+            customManager.AddPlayerName(OwnerClientId, name);
+        }
     }
     // Update is called once per frame
 
+
+    public override void OnDestroy()
+    {
+        base.OnDestroy();
+    }
     void LateUpdate()
     {
         if (PlayerCamera != null)
         {
-            NameUIObject.transform.LookAt(NameUIObject.transform.position + PlayerCamera.transform.rotation * Vector3.forward,
-                             PlayerCamera.transform.rotation * Vector3.up);
 
+                NameUIObject.transform.LookAt(NameUIObject.transform.position + PlayerCamera.transform.rotation * Vector3.forward,
+                             PlayerCamera.transform.rotation * Vector3.up);
+           
         }
     }
 

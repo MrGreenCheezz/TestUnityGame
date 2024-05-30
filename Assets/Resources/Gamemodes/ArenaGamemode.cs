@@ -67,6 +67,7 @@ public class ArenaGamemode : NetworkBehaviour, IGameMode<ArenaGamemode>
             Destroy(PlayersCurrentGameobjects[clientId]);
             PlayersCurrentGameobjects.Remove(clientId);
             PlayersOldGameobjects.Remove(clientId);
+
         }
     }
 
@@ -84,6 +85,7 @@ public class ArenaGamemode : NetworkBehaviour, IGameMode<ArenaGamemode>
         if (obj.TryGet(out NetworkObject networkObject))
         {
             networkObject.gameObject.SetActive(true);
+           
         }
     }
 

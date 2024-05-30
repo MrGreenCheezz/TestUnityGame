@@ -6,6 +6,7 @@ public class Persistentdata : MonoBehaviour
 {
     public static Persistentdata Instance;
 
+    
     public string PlayerName;
     private void OnEnable()
     {
@@ -20,6 +21,8 @@ public class Persistentdata : MonoBehaviour
             Destroy(gameObject);
         }
     }
+   
+
     // Start is called before the first frame update
     void Start()
     {
