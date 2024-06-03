@@ -3,7 +3,9 @@ guid: 2c1d64d016700d444b4ff154e7f3dceb
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - CanvasToAdd: {fileID: 5177743455676398702, guid: 985a710520f63494f8746dff9cc8c9c2, type: 3}
+  - HpUiPrefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

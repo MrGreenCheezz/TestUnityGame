@@ -52,10 +52,11 @@ public class ArenaGamemode : NetworkBehaviour, IGameMode<ArenaGamemode>
             PlayersOldGameobjects.Add(clientId, tmp);
             var player = Instantiate(PlayerPrefab);    
             player.transform.position = GameObject.Find("ArenaSpawnPoint").transform.position;
+            player.AddComponent<HpComponent>();
             player.GetComponent<NetworkObject>().SpawnWithOwnership(clientId);
             tmp.GetComponent<NetworkObject>().TrySetParent(player);
             PlayersCurrentGameobjects.Add(clientId, player);
-
+            
         }
         else
         {
@@ -92,7 +93,7 @@ public class ArenaGamemode : NetworkBehaviour, IGameMode<ArenaGamemode>
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     private void OnEnable()

@@ -68,5 +68,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentState:
     m_InternalValue: 0
+  ArenaComponents: []
   ScoreToWin: 5
   PlayerPrefab: {fileID: 4459864850019384750, guid: 6b149fc03468c2b47a26d9a57d1c8e52, type: 3}
