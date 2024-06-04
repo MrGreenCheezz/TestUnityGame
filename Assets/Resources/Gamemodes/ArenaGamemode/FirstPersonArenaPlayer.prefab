@@ -243,6 +243,7 @@ GameObject:
   - component: {fileID: 2362775808443714395}
   - component: {fileID: 2119399763047629322}
   - component: {fileID: 1087710890008012705}
+  - component: {fileID: 7362643668998402315}
   - component: {fileID: 3947565672975485993}
   - component: {fileID: 8110598224645013012}
   - component: {fileID: 4768958657904878634}
@@ -443,6 +444,21 @@ MonoBehaviour:
   - {fileID: 4281892497512319285}
   - {fileID: 0}
   MonoBehavioursToDisable: []
+--- !u!114 &7362643668998402315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2054149649580819501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b41039939a2f2468025ce36eb143f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Spells: []
+  CurrentSpellIndex: 0
+  testSpawn: {fileID: 2894460891921053849, guid: 89c8e97cfc5bc224eb6aa1b3ecc64c23, type: 3}
 --- !u!114 &3947565672975485993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -455,6 +471,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89bdb4af82b39404887af754edc9a4c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hpComponent: {fileID: 0}
+  playerSpellComponent: {fileID: 0}
 --- !u!114 &8110598224645013012
 MonoBehaviour:
   m_ObjectHideFlags: 0

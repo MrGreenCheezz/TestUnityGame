@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5763263103956753939
+--- !u!1 &2894460891921053849
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,44 +8,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1980879932167148389}
-  - component: {fileID: 946556910315100751}
-  - component: {fileID: 6878786042864710917}
+  - component: {fileID: 1986027600038353464}
+  - component: {fileID: 2284462858904193922}
+  - component: {fileID: 3614274553443602025}
   m_Layer: 0
-  m_Name: ArenaGamemodeObject
+  m_Name: FireballSpellGO
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1980879932167148389
+--- !u!4 &1986027600038353464
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5763263103956753939}
+  m_GameObject: {fileID: 2894460891921053849}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.13345, y: 1.6680546, z: 30.730158}
+  m_LocalPosition: {x: 500, y: 50, z: 500}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &946556910315100751
+--- !u!114 &2284462858904193922
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5763263103956753939}
+  m_GameObject: {fileID: 2894460891921053849}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2231335433
+  GlobalObjectIdHash: 1769051257
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -54,19 +54,19 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &6878786042864710917
+--- !u!114 &3614274553443602025
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5763263103956753939}
+  m_GameObject: {fileID: 2894460891921053849}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c6de74a288a80b42a4da24a8f31cf28, type: 3}
+  m_Script: {fileID: 11500000, guid: c6c8ff5b34a101f4a8a53e69ddb19c47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentState:
-    m_InternalValue: 0
-  ScoreToWin: 5
-  PlayerPrefab: {fileID: 2054149649580819501, guid: d39347b798706ff4ea0f0ee4c48de316, type: 3}
+  isReloading: 0
+  TimeToReload: 1
+  SpellImage: {fileID: 0}
+  Damage: 10
