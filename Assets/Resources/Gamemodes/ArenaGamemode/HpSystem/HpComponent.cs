@@ -12,9 +12,10 @@ public class HpComponent : NetworkBehaviour
     public GameObject HpUiPrefab;
     private Canvas localCanvas;
     private GameObject localHpUi;
+    [SerializeField]
     private Image fillerImage;
 
-    private Vector3 HpBarCoords = new Vector3(225, 50, 0);
+    //private Vector3 HpBarCoords = new Vector3(225, 50, 0);
 
     public NetworkVariable<int> MaxHP = new NetworkVariable<int>();
     public NetworkVariable<int> CurrentHP = new NetworkVariable<int>();
@@ -37,7 +38,8 @@ public class HpComponent : NetworkBehaviour
                     localCanvas = Instantiate(CanvasToAdd, gameObject.transform).GetComponent<Canvas>();                  
                 }
                 localHpUi = Instantiate(HpUiPrefab, localCanvas.transform);
-                fillerImage = transform.Find("Filler").GetComponent<Image>();
+                fillerImage = localHpUi.transform.Find("Filler").GetComponent<Image>();
+                
                 MaxHP.OnValueChanged += OwnerMaxHpChanged;
                 CurrentHP.OnValueChanged += OwnerCurrentHpChanged;
             }

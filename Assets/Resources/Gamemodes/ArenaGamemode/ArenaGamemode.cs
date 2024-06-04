@@ -16,7 +16,6 @@ public class ArenaGamemode : NetworkBehaviour, IGameMode<ArenaGamemode>
     public static ArenaGamemode instance;
     
     public NetworkVariable<ArenaState> CurrentState = new NetworkVariable<ArenaState>(ArenaState.WaitingForPlayers);
-
     public Dictionary<ulong, int> PlayerScores = new Dictionary<ulong, int>();
     public Dictionary<ulong, GameObject> PlayersOldGameobjects = new Dictionary<ulong, GameObject>();
     public Dictionary<ulong, GameObject> PlayersCurrentGameobjects = new Dictionary<ulong, GameObject>();
@@ -52,7 +51,6 @@ public class ArenaGamemode : NetworkBehaviour, IGameMode<ArenaGamemode>
             PlayersOldGameobjects.Add(clientId, tmp);
             var player = Instantiate(PlayerPrefab);    
             player.transform.position = GameObject.Find("ArenaSpawnPoint").transform.position;
-            player.AddComponent<HpComponent>();
             player.GetComponent<NetworkObject>().SpawnWithOwnership(clientId);
             tmp.GetComponent<NetworkObject>().TrySetParent(player);
             PlayersCurrentGameobjects.Add(clientId, player);

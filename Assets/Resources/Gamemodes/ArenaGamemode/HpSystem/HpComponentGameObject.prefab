@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5763263103956753939
+--- !u!1 &4670870333907742438
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,44 +8,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1980879932167148389}
-  - component: {fileID: 946556910315100751}
-  - component: {fileID: 6878786042864710917}
+  - component: {fileID: 1317912396656200597}
+  - component: {fileID: 5032990754374016047}
+  - component: {fileID: 1950707226933569399}
   m_Layer: 0
-  m_Name: ArenaGamemodeObject
+  m_Name: HpComponentGameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1980879932167148389
+--- !u!4 &1317912396656200597
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5763263103956753939}
+  m_GameObject: {fileID: 4670870333907742438}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.13345, y: 1.6680546, z: 30.730158}
+  m_LocalPosition: {x: 4.1826286, y: 1.75, z: 34.10103}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &946556910315100751
+--- !u!114 &5032990754374016047
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5763263103956753939}
+  m_GameObject: {fileID: 4670870333907742438}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2231335433
+  GlobalObjectIdHash: 3890895958
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -54,21 +54,22 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &6878786042864710917
+--- !u!114 &1950707226933569399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5763263103956753939}
+  m_GameObject: {fileID: 4670870333907742438}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c6de74a288a80b42a4da24a8f31cf28, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c1d64d016700d444b4ff154e7f3dceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentState:
-    m_InternalValue: 0
-  GamemodeComponents:
-  - {fileID: 4670870333907742438, guid: 894b99d4a853eff49b4a14ee519d9845, type: 3}
-  ScoreToWin: 5
-  PlayerPrefab: {fileID: 4459864850019384750, guid: 6b149fc03468c2b47a26d9a57d1c8e52, type: 3}
+  CanvasToAdd: {fileID: 5177743455676398702, guid: 985a710520f63494f8746dff9cc8c9c2, type: 3}
+  HpUiPrefab: {fileID: 3411113177509184502, guid: fffef80b2561fec40b2abbb13ac03a4a, type: 3}
+  fillerImage: {fileID: 0}
+  MaxHP:
+    m_InternalValue: 100
+  CurrentHP:
+    m_InternalValue: 100
