@@ -22,7 +22,7 @@ public class NetworkBaseSetupScript : MonoBehaviour
         {
             SceneManager.sceneLoaded += SceneChanged;
             SceneManager.LoadScene("OnlineScene");
-            NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData("26.166.14.33", 7777);
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData("127.0.0.1", 7777);
             NetworkManager.Singleton.StartServer();
             NetworkManager.Singleton.OnClientConnectedCallback += OnClientConnected;
             NetworkManager.Singleton.OnClientDisconnectCallback += OnClientDisconnected;
@@ -51,7 +51,7 @@ public class NetworkBaseSetupScript : MonoBehaviour
     public void JoinGame()
     {
         SceneManager.LoadScene("OnlineScene");
-        NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData("26.166.14.33", 7777);
+        NetworkManager.Singleton.GetComponent<UnityTransport>().SetConnectionData("127.0.0.1", 7777);
         NetworkManager.Singleton.StartClient();
     }
 
