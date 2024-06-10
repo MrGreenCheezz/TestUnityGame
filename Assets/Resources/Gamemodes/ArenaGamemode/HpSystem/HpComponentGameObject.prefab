@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3890895958
+  GlobalObjectIdHash: 405796134
   InScenePlacedSourceGlobalObjectIdHash: 0
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
@@ -66,8 +66,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c1d64d016700d444b4ff154e7f3dceb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanvasToAdd: {fileID: 5177743455676398702, guid: 985a710520f63494f8746dff9cc8c9c2, type: 3}
+  CanvasToAdd: {fileID: 4400670374116637344, guid: b2cebc16107a0db4fb845c659ffdd2de, type: 3}
   HpUiPrefab: {fileID: 3411113177509184502, guid: fffef80b2561fec40b2abbb13ac03a4a, type: 3}
+  localCanvas: {fileID: 0}
+  localHpUi: {fileID: 0}
   fillerImage: {fileID: 0}
   MaxHP:
     m_InternalValue: 100

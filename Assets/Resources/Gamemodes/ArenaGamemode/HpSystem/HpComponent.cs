@@ -7,10 +7,12 @@ using UnityEngine.UI;
 
 public class HpComponent : NetworkBehaviour
 {
-    //Нельзя просто так добавлять компонент, нужно сделать отдельный префаб , который будет содержать этот компонент
+    //Просто перенести на персонажа сам код компонента и может быть получиться а пока просто не получается создать объект с Интерфейсом здоровья
     public GameObject CanvasToAdd;
     public GameObject HpUiPrefab;
+    [SerializeField]
     private Canvas localCanvas;
+    [SerializeField]
     private GameObject localHpUi;
     [SerializeField]
     private Image fillerImage;
@@ -28,15 +30,11 @@ public class HpComponent : NetworkBehaviour
             MaxHP.OnValueChanged += ServerMaxHpChanged;
             CurrentHP.OnValueChanged += ServerCurrentHpChanged;
         }
-        else
-        {
+
             if (IsOwner)
             {
-                localCanvas = gameObject.GetComponentInChildren<Canvas>();
-                if (localCanvas == null || localCanvas.renderMode != RenderMode.ScreenSpaceOverlay)
-                {
-                    localCanvas = Instantiate(CanvasToAdd, gameObject.transform).GetComponent<Canvas>();                  
-                }
+                localCanvas = Instantiate(CanvasToAdd, gameObject.transform).GetComponent<Canvas>();
+                print(localCanvas);
                 localHpUi = Instantiate(HpUiPrefab, localCanvas.transform);
                 fillerImage = localHpUi.transform.Find("Filler").GetComponent<Image>();
                 
@@ -47,7 +45,7 @@ public class HpComponent : NetworkBehaviour
             {
 
             }
-        }
+        
     }
     [ServerRpc]
     public void SetMaxHpServerRpc(int amount)

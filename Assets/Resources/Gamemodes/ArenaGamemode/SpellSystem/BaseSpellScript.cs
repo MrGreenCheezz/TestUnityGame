@@ -9,7 +9,7 @@ public class BaseSpellScript : NetworkBehaviour
     public bool isReloading = false;
     private float reloadTime = 0.0f;
     public float TimeToReload = 1.0f;
-    public Image SpellImage;
+    public Sprite SpellImage;
     public int Damage = 10;
     // Start is called before the first frame update
     void Start()
